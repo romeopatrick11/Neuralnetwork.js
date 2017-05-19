@@ -160,20 +160,4 @@ Creature.prototype = {
 		return sum.limit(.1);
 	},
 
-	cohesion: function(neighboors)
-	{
-		var sum = new Vector(0,0);
-		var count = 0;
-		for (var i in neighboors)
-		{
-			if (neighboors[i] != this)// && !neighboors[i].special)
-			{
-				sum.add(neighboors[i].location);
-				count++;
-			}
-		}
-		sum.div(count);
-
-		return sum;
-	}
-}
+	
