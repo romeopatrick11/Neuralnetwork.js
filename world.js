@@ -55,7 +55,33 @@ function blastoff()
 		ctx.fillRect(0,0,world.width, world.height);
 		ctx.globalAlpha=1;
 
-		
+		// update each creature
+		var creatures = world.creatures;
+		creatures.forEach(function(creature)
+		{
+			// move
+			var input = [];
+			for (var i in creatures)
+			{
+				input.push(creatures[i].location.x);
+				input.push(creatures[i].location.y);
+				input.push(creatures[i].velocity.x);
+				input.push(creatures[i].velocity.y);
+			}
+			var output = creature.network.activate(input);
+			creature.moveTo(output);
+
+			// learn
+			var learningRate = .3;
+			var target = [targetX(creature), targetY(creature), targetAngle(creature)];
+			creature.network.propagate(learningRate, target);
+
+			// draw
+			creature.draw();
+		});
+		if (location.hash == "#/")
+			setTimeout(loop, 1000/fps);
+	}
 
 	// blastoff
 	loop();
