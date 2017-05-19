@@ -1,0 +1,17 @@
+{
+  "name": "neuralnetwork.js",
+  "version": "1.0.0",
+  "description": "Artificial Neural Networks in Javascript",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ANN"
+  ],
+  "author": "Nazanin Delam",
+  "license": "ISC",
+  "dependencies": {
+    "synaptic": "^1.0.8"
+  }
+}
